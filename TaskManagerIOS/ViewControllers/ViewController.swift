@@ -64,7 +64,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             TaskManager.sharedInstance.removeTask(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
-        return [deleteAction]
+        
+        let taskForIndex = TaskManager.sharedInstance.getTask(at: indexPath.row)
+        let title = taskForIndex.taskCompleted ? "Not Completed" : "Completed"
+        
+        let checkOutOrInAction = UITableViewRowAction(style: .normal, title: title) { _, _ in
+            TaskManager.sharedInstance.checkGameInOrOut(at: indexPath.row)
+            tableView.reloadRows(at: [indexPath], with: .fade)
+        }
+        
+        return [deleteAction, checkOutOrInAction]
     }
     
     

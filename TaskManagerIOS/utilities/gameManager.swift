@@ -24,5 +24,13 @@ class TaskManager {
     func removeTask(at index: Int) {
         tasksArray.remove(at: index)
     }
+    
+    func checkGameInOrOut(at index: Int) {
+        let gameForIndex = tasksArray[index]
+        gameForIndex.taskCompleted = !gameForIndex.taskCompleted
+        
+        
+    }
 }
+
 
