@@ -12,6 +12,7 @@
 		433CC3DB2188A9790047D76C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433CC3D92188A9790047D76C /* Main.storyboard */; };
 		433CC3DD2188A97B0047D76C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 433CC3DC2188A97B0047D76C /* Assets.xcassets */; };
 		433CC3E02188A97B0047D76C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433CC3DE2188A97B0047D76C /* LaunchScreen.storyboard */; };
+		433CC3EB2188B0250047D76C /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433CC3EA2188B0250047D76C /* Tasks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		433CC3DC2188A97B0047D76C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		433CC3DF2188A97B0047D76C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		433CC3E12188A97B0047D76C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		433CC3EA2188B0250047D76C /* Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,39 @@
 		433CC3D42188A9790047D76C /* TaskManagerIOS */ = {
 			isa = PBXGroup;
 			children = (
-				433CC3D52188A9790047D76C /* AppDelegate.swift */,
-				433CC3D72188A9790047D76C /* ViewController.swift */,
-				433CC3D92188A9790047D76C /* Main.storyboard */,
+				433CC3E92188B0060047D76C /* utilities */,
+				433CC3E72188ACAA0047D76C /* Storyboards */,
+				433CC3E82188ACD00047D76C /* ViewControllers */,
 				433CC3DC2188A97B0047D76C /* Assets.xcassets */,
-				433CC3DE2188A97B0047D76C /* LaunchScreen.storyboard */,
+				433CC3D52188A9790047D76C /* AppDelegate.swift */,
 				433CC3E12188A97B0047D76C /* Info.plist */,
 			);
 			path = TaskManagerIOS;
+			sourceTree = "<group>";
+		};
+		433CC3E72188ACAA0047D76C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				433CC3DE2188A97B0047D76C /* LaunchScreen.storyboard */,
+				433CC3D92188A9790047D76C /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		433CC3E82188ACD00047D76C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				433CC3D72188A9790047D76C /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		433CC3E92188B0060047D76C /* utilities */ = {
+			isa = PBXGroup;
+			children = (
+				433CC3EA2188B0250047D76C /* Tasks.swift */,
+			);
+			path = utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				433CC3D82188A9790047D76C /* ViewController.swift in Sources */,
+				433CC3EB2188B0250047D76C /* Tasks.swift in Sources */,
 				433CC3D62188A9790047D76C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
