@@ -14,14 +14,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var currentTask: Task!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TaskManager.sharedInstance.tasksArray.count
+        return TaskManager.sharedInstance.getTaskCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell") as! TaskTableViewCell
         
-        currentTask = TaskManager.sharedInstance.getGame(at: indexPath.row)
+        currentTask = TaskManager.sharedInstance.getTask(at: indexPath.row)
         
         cell.taskLabel.text = currentTask.taskTitle
         
@@ -35,15 +35,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let destination = segue.destination as? //task description view controller {
-//        // destination.game = currentGame
-//    }
-//}
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? TaskDescriptionViewController {
+            destination.task = currentTask
+    }
+}
 
 func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    self.currentTask = TaskManager.sharedInstance.getGame(at: indexPath.row)
+    self.currentTask = TaskManager.sharedInstance.getTask(at: indexPath.row)
+    self.performSegue(withIdentifier: "segueToDescription", sender: self)
 }
 
 override func viewWillAppear(_ animated: Bool) {

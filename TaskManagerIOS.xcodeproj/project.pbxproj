@@ -15,6 +15,7 @@
 		433CC3ED2188C99D0047D76C /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433CC3EC2188C99D0047D76C /* TaskTableViewCell.swift */; };
 		433CC3EF2188CCA40047D76C /* gameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433CC3EE2188CCA40047D76C /* gameManager.swift */; };
 		433CC3F12188D0950047D76C /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433CC3F02188D0950047D76C /* Task.swift */; };
+		433CC3F32188DC840047D76C /* TaskDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433CC3F22188DC840047D76C /* TaskDescriptionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		433CC3EC2188C99D0047D76C /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		433CC3EE2188CCA40047D76C /* gameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameManager.swift; sourceTree = "<group>"; };
 		433CC3F02188D0950047D76C /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		433CC3F22188DC840047D76C /* TaskDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				433CC3D72188A9790047D76C /* ViewController.swift */,
+				433CC3F22188DC840047D76C /* TaskDescriptionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				433CC3D82188A9790047D76C /* ViewController.swift in Sources */,
 				433CC3D62188A9790047D76C /* AppDelegate.swift in Sources */,
 				433CC3F12188D0950047D76C /* Task.swift in Sources */,
+				433CC3F32188DC840047D76C /* TaskDescriptionViewController.swift in Sources */,
 				433CC3EF2188CCA40047D76C /* gameManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

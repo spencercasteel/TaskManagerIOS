@@ -13,11 +13,11 @@ class TaskManager {
     
     var tasksArray: [Task] = [Task(taskTitle: "Herp", taskDescription: "when your just derpin around the town"), Task(taskTitle: "get food", taskDescription: "got to the store and get food")]
 
-    func getGameCount() -> Int {
+    func getTaskCount() -> Int {
         return tasksArray.count
     }
     
-    func getGame(at index: Int) -> Task {
+    func getTask(at index: Int) -> Task {
         return tasksArray[index]
     }
 }
