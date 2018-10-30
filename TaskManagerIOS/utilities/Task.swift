@@ -1,5 +1,5 @@
 //
-//  Tasks.swift
+//  Task.swift
 //  TaskManagerIOS
 //
 //  Created by Spencer Casteel on 10/30/18.
@@ -11,11 +11,12 @@ import Foundation
 class Task {
     let taskTitle: String
     let taskDescription: String
-    var completed: Bool
+    var taskCompleted: Bool
     
     init(taskTitle: String, taskDescription: String) {
         self.taskTitle = taskTitle
         self.taskDescription = taskDescription
-        self.completed = false
+        self.taskCompleted = false
+
     }
 }

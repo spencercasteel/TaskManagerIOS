@@ -12,7 +12,9 @@
 		433CC3DB2188A9790047D76C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433CC3D92188A9790047D76C /* Main.storyboard */; };
 		433CC3DD2188A97B0047D76C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 433CC3DC2188A97B0047D76C /* Assets.xcassets */; };
 		433CC3E02188A97B0047D76C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433CC3DE2188A97B0047D76C /* LaunchScreen.storyboard */; };
-		433CC3EB2188B0250047D76C /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433CC3EA2188B0250047D76C /* Tasks.swift */; };
+		433CC3ED2188C99D0047D76C /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433CC3EC2188C99D0047D76C /* TaskTableViewCell.swift */; };
+		433CC3EF2188CCA40047D76C /* gameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433CC3EE2188CCA40047D76C /* gameManager.swift */; };
+		433CC3F12188D0950047D76C /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433CC3F02188D0950047D76C /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +25,9 @@
 		433CC3DC2188A97B0047D76C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		433CC3DF2188A97B0047D76C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		433CC3E12188A97B0047D76C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		433CC3EA2188B0250047D76C /* Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
+		433CC3EC2188C99D0047D76C /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		433CC3EE2188CCA40047D76C /* gameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameManager.swift; sourceTree = "<group>"; };
+		433CC3F02188D0950047D76C /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +90,9 @@
 		433CC3E92188B0060047D76C /* utilities */ = {
 			isa = PBXGroup;
 			children = (
-				433CC3EA2188B0250047D76C /* Tasks.swift */,
+				433CC3EC2188C99D0047D76C /* TaskTableViewCell.swift */,
+				433CC3EE2188CCA40047D76C /* gameManager.swift */,
+				433CC3F02188D0950047D76C /* Task.swift */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -162,9 +168,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				433CC3ED2188C99D0047D76C /* TaskTableViewCell.swift in Sources */,
 				433CC3D82188A9790047D76C /* ViewController.swift in Sources */,
-				433CC3EB2188B0250047D76C /* Tasks.swift in Sources */,
 				433CC3D62188A9790047D76C /* AppDelegate.swift in Sources */,
+				433CC3F12188D0950047D76C /* Task.swift in Sources */,
+				433CC3EF2188CCA40047D76C /* gameManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

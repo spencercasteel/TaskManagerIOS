@@ -9,19 +9,54 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var taskListTabelView: UITableView!
+    
+    var currentTask: Task!
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return TaskManager.sharedInstance.tasksArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell") as! TaskTableViewCell
+        
+        currentTask = TaskManager.sharedInstance.getGame(at: indexPath.row)
+        
+        cell.taskLabel.text = currentTask.taskTitle
+        
+        
+        if currentTask.taskCompleted {
+            cell.statusView.backgroundColor = UIColor.green
+        } else {
+            cell.statusView.backgroundColor = UIColor.red
+        }
+        
+        return cell
     }
     
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let destination = segue.destination as? //task description view controller {
+//        // destination.game = currentGame
+//    }
+//}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    self.currentTask = TaskManager.sharedInstance.getGame(at: indexPath.row)
+}
+
+override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    taskListTabelView.reloadData()
+}
+
+override func viewDidLoad() {
+    super.viewDidLoad()
+    // Do any additional setup after loading the view, typically from a nib.
+    
+}
 
 
 }
