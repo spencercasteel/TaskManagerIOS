@@ -12,7 +12,7 @@ class TaskManager {
     static let sharedInstance = TaskManager()
     
     var tasksArray: [Task] = [Task(taskTitle: "Herp", taskDescription: "when your just derpin around the town"), Task(taskTitle: "get food", taskDescription: "got to the store and get food")]
-
+    
     func getTaskCount() -> Int {
         return tasksArray.count
     }
@@ -20,4 +20,9 @@ class TaskManager {
     func getTask(at index: Int) -> Task {
         return tasksArray[index]
     }
+    
+    func removeTask(at index: Int) {
+        tasksArray.remove(at: index)
+    }
 }
+

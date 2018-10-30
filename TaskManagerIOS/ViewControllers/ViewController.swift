@@ -38,27 +38,35 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? TaskDescriptionViewController {
             destination.task = currentTask
+        }
     }
-}
-
-func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    tableView.deselectRow(at: indexPath, animated: true)
-    self.currentTask = TaskManager.sharedInstance.getTask(at: indexPath.row)
-    self.performSegue(withIdentifier: "segueToDescription", sender: self)
-}
-
-override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
     
-    taskListTabelView.reloadData()
-}
-
-override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.currentTask = TaskManager.sharedInstance.getTask(at: indexPath.row)
+        self.performSegue(withIdentifier: "segueToDescription", sender: self)
+    }
     
-}
-
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        taskListTabelView.reloadData()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") {_, _ in
+            TaskManager.sharedInstance.removeTask(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        return [deleteAction]
+    }
+    
+    
 }
 
