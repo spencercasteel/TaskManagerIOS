@@ -10,28 +10,25 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var taskListTabelView: UITableView!
+    @IBOutlet weak var taskSegmentedControl: UISegmentedControl!
     
     var currentTask: Task!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TaskManager.sharedInstance.getTaskCount()
+        return TaskManager.sharedInstance.filteredTasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell") as! TaskTableViewCell
+        cell.taskLabel.text = TaskManager.sharedInstance.filteredTasks[indexPath.row].taskTitle
         
         currentTask = TaskManager.sharedInstance.getTask(at: indexPath.row)
         
-        cell.taskLabel.text = currentTask.taskTitle
-        
-        
-        if currentTask.taskCompleted {
+        if TaskManager.sharedInstance.filteredTasks[indexPath.row].taskCompleted {
             cell.statusView.backgroundColor = UIColor.green
         } else {
             cell.statusView.backgroundColor = UIColor.red
         }
-        
         return cell
     }
     
@@ -43,7 +40,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        self.currentTask = TaskManager.sharedInstance.getTask(at: indexPath.row)
+        
         self.performSegue(withIdentifier: "segueToDescription", sender: self)
     }
     
@@ -56,7 +53,33 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let taskOne = Task(taskTitle: "dog", taskDescription: "dog")
+        let taskTwo = Task(taskTitle: "cat", taskDescription: "cat")
         
+        TaskManager.sharedInstance.allTasks.append(taskOne)
+        TaskManager.sharedInstance.allTasks.append(taskTwo)
+        
+        filterTasks()
+    }
+    
+    func filterTasks() {
+        switch taskSegmentedControl.selectedSegmentIndex {
+        case 0:
+            TaskManager.sharedInstance.filteredTasks = TaskManager.sharedInstance.allTasks
+        case 1:
+           TaskManager.sharedInstance.filteredTasks = TaskManager.sharedInstance.allTasks.filter({ (allTasks) -> Bool in
+                return allTasks.taskCompleted == false
+            })
+        case 2:
+           TaskManager.sharedInstance.filteredTasks =
+               TaskManager.sharedInstance.allTasks.filter({ (allTasks) -> Bool in
+                return allTasks.taskCompleted == true
+            })
+        default:
+            return
+        }
+        taskListTabelView.reloadData()
+       
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -75,7 +98,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         return [deleteAction, checkOutOrInAction]
     }
-    
-    
+    @IBAction func segmentedControllerValueChanged(_ sender: Any) {
+        filterTasks()
+    }
 }
 

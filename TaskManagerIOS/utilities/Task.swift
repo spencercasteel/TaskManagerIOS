@@ -17,6 +17,5 @@ class Task {
         self.taskTitle = taskTitle
         self.taskDescription = taskDescription
         self.taskCompleted = false
-
     }
 }

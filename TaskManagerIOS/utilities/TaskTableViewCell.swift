@@ -12,8 +12,6 @@ class TaskTableViewCell: UITableViewCell {
     @IBOutlet weak var taskLabel: UILabel!
     @IBOutlet weak var statusView: UIView!
     
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

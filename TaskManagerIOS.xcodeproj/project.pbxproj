@@ -16,6 +16,7 @@
 		433CC3EF2188CCA40047D76C /* gameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433CC3EE2188CCA40047D76C /* gameManager.swift */; };
 		433CC3F12188D0950047D76C /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433CC3F02188D0950047D76C /* Task.swift */; };
 		433CC3F32188DC840047D76C /* TaskDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433CC3F22188DC840047D76C /* TaskDescriptionViewController.swift */; };
+		43BEBD51218A014500049615 /* addTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BEBD50218A014500049615 /* addTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		433CC3EE2188CCA40047D76C /* gameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameManager.swift; sourceTree = "<group>"; };
 		433CC3F02188D0950047D76C /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		433CC3F22188DC840047D76C /* TaskDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionViewController.swift; sourceTree = "<group>"; };
+		43BEBD50218A014500049615 /* addTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			children = (
 				433CC3D72188A9790047D76C /* ViewController.swift */,
 				433CC3F22188DC840047D76C /* TaskDescriptionViewController.swift */,
+				43BEBD50218A014500049615 /* addTaskViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				433CC3ED2188C99D0047D76C /* TaskTableViewCell.swift in Sources */,
+				43BEBD51218A014500049615 /* addTaskViewController.swift in Sources */,
 				433CC3D82188A9790047D76C /* ViewController.swift in Sources */,
 				433CC3D62188A9790047D76C /* AppDelegate.swift in Sources */,
 				433CC3F12188D0950047D76C /* Task.swift in Sources */,
