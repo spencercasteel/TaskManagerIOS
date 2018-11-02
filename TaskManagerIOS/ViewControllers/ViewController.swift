@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var currentTask: Task!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TaskManager.sharedInstance.filteredTasks.count
+        return TaskManager.sharedInstance.getfilteredTaskCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,12 +69,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             TaskManager.sharedInstance.filteredTasks = TaskManager.sharedInstance.allTasks
         case 1:
            TaskManager.sharedInstance.filteredTasks = TaskManager.sharedInstance.allTasks.filter({ (allTasks) -> Bool in
-                return allTasks.taskCompleted == false
+            return !allTasks.taskCompleted
             })
         case 2:
            TaskManager.sharedInstance.filteredTasks =
                TaskManager.sharedInstance.allTasks.filter({ (allTasks) -> Bool in
-                return allTasks.taskCompleted == true
+                return allTasks.taskCompleted
             })
         default:
             return
@@ -84,10 +84,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") {_, _ in
             TaskManager.sharedInstance.removeTask(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+            
         
         let taskForIndex = TaskManager.sharedInstance.getTask(at: indexPath.row)
         let title = taskForIndex.taskCompleted ? "Not Completed" : "Completed"
@@ -97,8 +99,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             tableView.reloadRows(at: [indexPath], with: .fade)
         }
         
-        return [deleteAction, checkOutOrInAction]
+        if taskSegmentedControl.selectedSegmentIndex == 0 {
+        
+            return [deleteAction, checkOutOrInAction]
+        } else {
+            return [checkOutOrInAction]
+        }
+        
     }
+    
     @IBAction func segmentedControllerValueChanged(_ sender: Any) {
         filterTasks()
     }

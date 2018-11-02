@@ -15,7 +15,7 @@ class TaskDescriptionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-taskDecriptionLabel.text = task.taskDescription
+        taskDecriptionLabel.text = task.taskDescription
         // Do any additional setup after loading the view.
     }
     

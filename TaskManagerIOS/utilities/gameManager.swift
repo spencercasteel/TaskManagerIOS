@@ -15,8 +15,8 @@ class TaskManager {
     
     var filteredTasks: [Task] = []
     
-    func getTaskCount() -> Int {
-        return allTasks.count
+    func getfilteredTaskCount() -> Int {
+        return filteredTasks.count
     }
     
     func getTask(at index: Int) -> Task {

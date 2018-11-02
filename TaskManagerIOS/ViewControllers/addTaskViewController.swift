@@ -21,16 +21,24 @@ class addTaskViewController: UIViewController {
     }
     
     @IBAction func buttonTapped(_ sender: Any) {
-        guard let gameTitle = taskTitle.text, gameTitle.trimmingCharacters(in: .whitespacesAndNewlines) != "", let gameDescription = taskDescription.text,  gameDescription.trimmingCharacters(in: .whitespacesAndNewlines) != "" else {
+        guard let taskTitle = taskTitle.text, taskTitle.trimmingCharacters(in: .whitespacesAndNewlines) != "", let taskDescription = taskDescription.text,  taskDescription.trimmingCharacters(in: .whitespacesAndNewlines) != "" else {
             //show an error and return
-            return
+            return showErrorAlert()
         }
         
-        let newTask = Task(taskTitle: gameTitle, taskDescription: gameDescription)
+        let newTask = Task(taskTitle: taskTitle, taskDescription: taskDescription)
         
         TaskManager.sharedInstance.allTasks.append(newTask)
         
         self.performSegue(withIdentifier: "unwindToTaskList", sender: self)
+    }
+    
+    func showErrorAlert() {
+        let alertController = UIAlertController(title: "ERROR", message: "You must enter a title and description for the Task.", preferredStyle: .actionSheet)
+        let closeAction = UIAlertAction(title: "Close", style: .default) { _ in
+        }
+        alertController.addAction(closeAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     /*
