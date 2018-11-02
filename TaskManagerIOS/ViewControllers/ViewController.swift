@@ -20,11 +20,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell") as! TaskTableViewCell
-        cell.taskLabel.text = TaskManager.sharedInstance.filteredTasks[indexPath.row].taskTitle
         
-        currentTask = TaskManager.sharedInstance.getTask(at: indexPath.row)
+        let currentTask = TaskManager.sharedInstance.filteredTasks[indexPath.row]
         
-        if TaskManager.sharedInstance.filteredTasks[indexPath.row].taskCompleted {
+        cell.taskLabel.text = currentTask.taskTitle
+        
+        if currentTask.taskCompleted {
             cell.statusView.backgroundColor = UIColor.green
         } else {
             cell.statusView.backgroundColor = UIColor.red
@@ -40,7 +41,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+        currentTask = TaskManager.sharedInstance.getTask(at: indexPath.row)
         self.performSegue(withIdentifier: "segueToDescription", sender: self)
     }
     
