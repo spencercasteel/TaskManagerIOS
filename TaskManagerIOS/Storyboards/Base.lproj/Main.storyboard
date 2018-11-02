@@ -159,9 +159,9 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ldg-uK-hp8">
                                 <rect key="frame" x="10" y="64" width="355" height="120"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ArI-1k-1ao">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ArI-1k-1ao">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -171,9 +171,9 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQs-pE-7h5">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQs-pE-7h5">
                                         <rect key="frame" x="0.0" y="60" width="355" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -185,20 +185,36 @@
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGE-D3-vA3">
+                                <rect key="frame" x="145.5" y="617" width="84" height="30"/>
+                                <state key="normal" title="Submit Task"/>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="2QN-KS-hS6" eventType="touchUpInside" id="dYp-ca-NLj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Ldg-uK-hp8" firstAttribute="top" secondItem="CX1-II-97n" secondAttribute="bottom" id="20I-SR-aPn"/>
                             <constraint firstItem="CX1-II-97n" firstAttribute="trailing" secondItem="Ldg-uK-hp8" secondAttribute="trailing" id="7Ce-F8-8j4"/>
+                            <constraint firstItem="m1c-e7-rWw" firstAttribute="bottom" secondItem="sGE-D3-vA3" secondAttribute="bottom" constant="20" id="Ati-GX-CuN"/>
                             <constraint firstItem="CX1-II-97n" firstAttribute="leading" secondItem="Ldg-uK-hp8" secondAttribute="leading" id="OmC-2Y-XMC"/>
                             <constraint firstItem="CX1-II-97n" firstAttribute="bottom" secondItem="m1c-e7-rWw" secondAttribute="top" id="TwV-W5-ccj"/>
                             <constraint firstItem="m1c-e7-rWw" firstAttribute="trailing" secondItem="Ldg-uK-hp8" secondAttribute="trailing" constant="10" id="bcl-br-z5H"/>
+                            <constraint firstItem="sGE-D3-vA3" firstAttribute="centerX" secondItem="m1c-e7-rWw" secondAttribute="centerX" id="hPd-Xr-Bfd"/>
                             <constraint firstItem="Ldg-uK-hp8" firstAttribute="leading" secondItem="m1c-e7-rWw" secondAttribute="leading" constant="10" id="npv-PX-ep3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="m1c-e7-rWw"/>
                     </view>
+                    <connections>
+                        <outlet property="submitButton" destination="sGE-D3-vA3" id="ZkY-7G-OVJ"/>
+                        <outlet property="taskDescription" destination="Qc9-SN-sGf" id="adG-du-uXK"/>
+                        <outlet property="taskTitle" destination="02O-P7-rWT" id="6wQ-hy-YAS"/>
+                        <segue destination="txJ-aV-euI" kind="unwind" identifier="unwindToTaskList" unwindAction="unwindToTaskListWithSegue:" id="0bD-b6-5hd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rcn-Zc-wCo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="txJ-aV-euI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1752.8" y="26.53673163418291"/>
         </scene>
