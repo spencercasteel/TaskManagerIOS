@@ -12,8 +12,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var taskListTabelView: UITableView!
     @IBOutlet weak var taskSegmentedControl: UISegmentedControl!
     
+    //this will be the task that is currently selected
     var currentTask: Task!
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return TaskManager.sharedInstance.getfilteredTaskCount()
     }
@@ -21,7 +22,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell") as! TaskTableViewCell
         
-        let currentTask = TaskManager.sharedInstance.filteredTasks[indexPath.row]
+        let currentTask = TaskManager.sharedInstance.getTask(at: indexPath.row)
         
         cell.taskLabel.text = currentTask.taskTitle
         
@@ -30,6 +31,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } else {
             cell.statusView.backgroundColor = UIColor.red
         }
+        
+        cell.statusView.layer.cornerRadius = 35
+        
         return cell
     }
     
@@ -63,6 +67,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         filterTasks()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        filterTasks()
+    }
+    
     func filterTasks() {
         switch taskSegmentedControl.selectedSegmentIndex {
         case 0:
@@ -92,19 +100,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
         
         let taskForIndex = TaskManager.sharedInstance.getTask(at: indexPath.row)
-        let title = taskForIndex.taskCompleted ? "Not Completed" : "Completed"
+        let title = taskForIndex.taskCompleted ? "Task Not Completed" : "Task Complete"
         
         let checkOutOrInAction = UITableViewRowAction(style: .normal, title: title) { _, _ in
             TaskManager.sharedInstance.checkGameInOrOut(at: indexPath.row)
             tableView.reloadRows(at: [indexPath], with: .fade)
+            self.filterTasks()
         }
         
         if taskSegmentedControl.selectedSegmentIndex == 0 {
         
             return [deleteAction, checkOutOrInAction]
+            
         } else {
             return [checkOutOrInAction]
         }
+        
         
     }
     
