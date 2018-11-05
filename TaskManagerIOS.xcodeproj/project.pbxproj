@@ -16,6 +16,7 @@
 		433CC3EF2188CCA40047D76C /* gameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433CC3EE2188CCA40047D76C /* gameManager.swift */; };
 		433CC3F12188D0950047D76C /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433CC3F02188D0950047D76C /* Task.swift */; };
 		433CC3F32188DC840047D76C /* TaskDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433CC3F22188DC840047D76C /* TaskDescriptionViewController.swift */; };
+		43A26555219094E400640AA2 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A26554219094E400640AA2 /* PasswordViewController.swift */; };
 		43BEBD51218A014500049615 /* addTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BEBD50218A014500049615 /* addTaskViewController.swift */; };
 		43EF3A8C218D5A4B00D85FC5 /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EF3A8B218D5A4B00D85FC5 /* EditTaskViewController.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		433CC3EE2188CCA40047D76C /* gameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameManager.swift; sourceTree = "<group>"; };
 		433CC3F02188D0950047D76C /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		433CC3F22188DC840047D76C /* TaskDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionViewController.swift; sourceTree = "<group>"; };
+		43A26554219094E400640AA2 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		43BEBD50218A014500049615 /* addTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTaskViewController.swift; sourceTree = "<group>"; };
 		43EF3A8B218D5A4B00D85FC5 /* EditTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +94,7 @@
 				433CC3F22188DC840047D76C /* TaskDescriptionViewController.swift */,
 				43BEBD50218A014500049615 /* addTaskViewController.swift */,
 				43EF3A8B218D5A4B00D85FC5 /* EditTaskViewController.swift */,
+				43A26554219094E400640AA2 /* PasswordViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				433CC3F32188DC840047D76C /* TaskDescriptionViewController.swift in Sources */,
 				433CC3EF2188CCA40047D76C /* gameManager.swift in Sources */,
 				43EF3A8C218D5A4B00D85FC5 /* EditTaskViewController.swift in Sources */,
+				43A26555219094E400640AA2 /* PasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

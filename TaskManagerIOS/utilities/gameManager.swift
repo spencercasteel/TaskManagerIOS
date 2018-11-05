@@ -11,6 +11,9 @@ import Foundation
 class TaskManager {
     static let sharedInstance = TaskManager()
     
+    //password to enter task manager
+    let password = "dog"
+    
     //this array will store every task
     var allTasks: [Task] = [Task(taskTitle: "Herp", taskDescription: "when your just derpin around the town man"), Task(taskTitle: "get food", taskDescription: "go to the store and get food")]
     
