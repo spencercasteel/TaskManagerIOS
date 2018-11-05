@@ -10,12 +10,14 @@ import UIKit
 
 class TaskDescriptionViewController: UIViewController {
     @IBOutlet weak var taskDecriptionLabel: UILabel!
+    @IBOutlet weak var taskTitleLabel: UILabel!
     
     var task: Task!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         taskDecriptionLabel.text = task.taskDescription
+        taskTitleLabel.text = task.taskTitle
         // Do any additional setup after loading the view.
     }
     

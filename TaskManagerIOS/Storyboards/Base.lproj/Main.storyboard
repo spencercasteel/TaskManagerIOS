@@ -18,22 +18,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOk-72-6Zc">
-                                <rect key="frame" x="10" y="74" width="355" height="21.5"/>
+                                <rect key="frame" x="20" y="125" width="335" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lPo-Wh-ZCC">
+                                <rect key="frame" x="20" y="84" width="335" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="kOk-72-6Zc" firstAttribute="leading" secondItem="cFt-AW-RLb" secondAttribute="leading" constant="10" id="7ES-Ck-fA9"/>
-                            <constraint firstItem="kOk-72-6Zc" firstAttribute="top" secondItem="cFt-AW-RLb" secondAttribute="top" constant="10" id="Mxa-Wa-Pjm"/>
-                            <constraint firstItem="cFt-AW-RLb" firstAttribute="trailing" secondItem="kOk-72-6Zc" secondAttribute="trailing" constant="10" id="ctU-v9-EfY"/>
+                            <constraint firstItem="cFt-AW-RLb" firstAttribute="trailing" secondItem="lPo-Wh-ZCC" secondAttribute="trailing" constant="20" id="0xA-WO-Yke"/>
+                            <constraint firstItem="cFt-AW-RLb" firstAttribute="trailing" secondItem="kOk-72-6Zc" secondAttribute="trailing" constant="20" id="2mg-qp-cro"/>
+                            <constraint firstItem="kOk-72-6Zc" firstAttribute="top" secondItem="lPo-Wh-ZCC" secondAttribute="bottom" constant="20" id="BkS-qT-jLM"/>
+                            <constraint firstItem="lPo-Wh-ZCC" firstAttribute="top" secondItem="cFt-AW-RLb" secondAttribute="top" constant="20" id="QwO-oA-LXz"/>
+                            <constraint firstItem="lPo-Wh-ZCC" firstAttribute="leading" secondItem="cFt-AW-RLb" secondAttribute="leading" constant="20" id="i9o-Iy-AVE"/>
+                            <constraint firstItem="kOk-72-6Zc" firstAttribute="leading" secondItem="cFt-AW-RLb" secondAttribute="leading" constant="20" id="zK9-QD-1Li"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cFt-AW-RLb"/>
                     </view>
                     <connections>
                         <outlet property="taskDecriptionLabel" destination="kOk-72-6Zc" id="uJp-Jv-g9v"/>
+                        <outlet property="taskTitleLabel" destination="lPo-Wh-ZCC" id="EML-2Y-dIw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CmC-6A-kjx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -77,7 +87,6 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="10V-TA-LmA" secondAttribute="trailing" id="4rg-Sp-4HW"/>
                                                 <constraint firstAttribute="trailing" secondItem="10V-TA-LmA" secondAttribute="trailing" constant="-30" id="Jdb-gT-5q1"/>
                                                 <constraint firstItem="J94-PD-wbj" firstAttribute="leading" secondItem="d6D-dd-VZa" secondAttribute="leadingMargin" constant="4" id="KaF-Dw-ATx"/>
                                                 <constraint firstAttribute="bottom" secondItem="10V-TA-LmA" secondAttribute="bottom" id="Rv5-WK-9SQ"/>
@@ -140,11 +149,78 @@
                         <outlet property="taskListTabelView" destination="2WI-Um-0ZD" id="h1o-EU-LMc"/>
                         <outlet property="taskSegmentedControl" destination="SmC-CL-CSb" id="psu-OT-tJe"/>
                         <segue destination="wpG-KZ-eQX" kind="show" identifier="segueToDescription" id="MDf-wk-ELz"/>
+                        <segue destination="22A-ga-IZK" kind="show" identifier="showEditTaskScreen" id="hCW-NH-ZW5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="992.79999999999995" y="27.436281859070466"/>
+        </scene>
+        <!--Edit Task View Controller-->
+        <scene sceneID="9ch-IM-40L">
+            <objects>
+                <viewController id="22A-ga-IZK" customClass="EditTaskViewController" customModule="TaskManagerIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PCw-Hx-rI2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRo-bX-1PU">
+                                <rect key="frame" x="145.5" y="617" width="84" height="30"/>
+                                <state key="normal" title="Submit Task"/>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="22A-ga-IZK" eventType="touchUpInside" id="bxX-qI-f3N"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aX5-fD-qsB">
+                                <rect key="frame" x="0.0" y="64" width="375" height="108"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oba-m1-0St">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8rD-dM-9Kl">
+                                        <rect key="frame" x="0.0" y="24" width="375" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJf-Al-fpw">
+                                        <rect key="frame" x="0.0" y="54" width="375" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UFg-U8-5yu">
+                                        <rect key="frame" x="0.0" y="78" width="375" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Okk-0B-qjd" firstAttribute="bottom" secondItem="mRo-bX-1PU" secondAttribute="bottom" constant="20" id="MTa-dN-dGw"/>
+                            <constraint firstItem="mRo-bX-1PU" firstAttribute="centerX" secondItem="Okk-0B-qjd" secondAttribute="centerX" id="QM6-DD-bIv"/>
+                            <constraint firstItem="aX5-fD-qsB" firstAttribute="top" secondItem="Okk-0B-qjd" secondAttribute="top" id="UDM-EH-FE8"/>
+                            <constraint firstItem="Okk-0B-qjd" firstAttribute="trailing" secondItem="aX5-fD-qsB" secondAttribute="trailing" id="uoO-a6-DVa"/>
+                            <constraint firstItem="aX5-fD-qsB" firstAttribute="leading" secondItem="Okk-0B-qjd" secondAttribute="leading" id="wZY-WZ-aBd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Okk-0B-qjd"/>
+                    </view>
+                    <connections>
+                        <outlet property="taskDescriptionTextFeild" destination="UFg-U8-5yu" id="6F2-uJ-bcu"/>
+                        <outlet property="taskTitleTextField" destination="8rD-dM-9Kl" id="iKs-BI-60k"/>
+                        <segue destination="p0U-aG-C6C" kind="unwind" identifier="unwindToTaskList" unwindAction="unwindToTaskListWithSegue:" id="lUc-f3-aCz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HjY-Yb-nna" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="p0U-aG-C6C" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="993" y="730"/>
         </scene>
         <!--Add Task-->
         <scene sceneID="Djd-N7-bu9">

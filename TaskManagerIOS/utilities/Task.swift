@@ -9,8 +9,8 @@
 import Foundation
 
 class Task {
-    let taskTitle: String
-    let taskDescription: String
+    var taskTitle: String
+    var taskDescription: String
     var taskCompleted: Bool
     
     init(taskTitle: String, taskDescription: String) {

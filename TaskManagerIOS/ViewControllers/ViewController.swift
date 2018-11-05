@@ -40,6 +40,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? TaskDescriptionViewController {
             destination.task = currentTask
+        } else if let destination = segue.destination as? EditTaskViewController {
+            destination.taskToEdit = currentTask
         }
     }
     
@@ -48,6 +50,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         currentTask = TaskManager.sharedInstance.getTask(at: indexPath.row)
         self.performSegue(withIdentifier: "segueToDescription", sender: self)
     }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -108,9 +111,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.filterTasks()
         }
         
+        let showEditScreenAction = UITableViewRowAction(style: .normal, title: "Edit") { _, _ in
+            self.currentTask = TaskManager.sharedInstance.getTask(at: indexPath.row)
+            self.performSegue(withIdentifier: "showEditTaskScreen", sender: self)
+        }
+        
+        showEditScreenAction.backgroundColor = UIColor.darkGray
+        
         if taskSegmentedControl.selectedSegmentIndex == 0 {
         
-            return [deleteAction, checkOutOrInAction]
+            return [deleteAction, checkOutOrInAction, showEditScreenAction]
             
         } else {
             return [checkOutOrInAction]
