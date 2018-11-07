@@ -23,6 +23,7 @@ class PasswordViewController: UIViewController {
             performSegue(withIdentifier: "passwordSegue", sender: self)
         } else {
             showErrorAlert()
+            passwordTextFeild.text = ""
         }
     }
     
