@@ -12,10 +12,10 @@ class TaskManager {
     static let sharedInstance = TaskManager()
     
     //password to enter task manager
-    let password = "dog"
+    let password = "Kat"
     
     //this array will store every task
-    var allTasks: [Task] = [Task(taskTitle: "Herp", taskDescription: "when your just derpin around the town man"), Task(taskTitle: "get food", taskDescription: "go to the store and get food")]
+    var allTasks: [Task] = [Task(taskTitle: "Pack", taskDescription: "Pack my cloths for the trip to florida"), Task(taskTitle: "get food", taskDescription: "go to the store and get snacks for the trip"), Task(taskTitle: "gas", taskDescription: "put gas in the truck for the trip"), Task(taskTitle: "Drinks", taskDescription: "put drinks in the cooler so there cold for the trip")]
     
     //this array will store the tasks that will be displayed on the screen at the moment
     var filteredTasks: [Task] = []

@@ -61,12 +61,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let taskOne = Task(taskTitle: "dog", taskDescription: "dog")
-        let taskTwo = Task(taskTitle: "cat", taskDescription: "cat")
-        
-        TaskManager.sharedInstance.allTasks.append(taskOne)
-        TaskManager.sharedInstance.allTasks.append(taskTwo)
-        
         filterTasks()
     }
     
